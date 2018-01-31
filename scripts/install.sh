@@ -3,16 +3,14 @@
 # create thunder project
 composer create-project burdamagazinorg/thunder-project:2.x ~/builds/thunder --stability dev --no-interaction --no-install
 
-
+cd ~/builds/thunder
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
+# This actually does a 'composer install'
 composer require drush/drush:~8.1
 
 # setup theme
 cd ~/builds
 git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x
-
-ls -R
-
 rm -rf ~/builds/thunder/docroot/themes/contrib/thunder_admin/
 ln -s ~/builds/theme-thunder-admin ~/builds/thunder/docroot/themes/contrib/thunder_admin
 
