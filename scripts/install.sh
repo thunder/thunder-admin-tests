@@ -18,4 +18,4 @@ ln -s ~/builds/theme-thunder-admin ~/builds/thunder/docroot/themes/contrib/thund
 #drush site-install standard install_configure_form.enable_update_status_module=NULL
 # /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`"
 cd ~/builds/thunder/docroot
-drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
+~/builds/thunder/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
