@@ -1,0 +1,43 @@
+language: php
+sudo: false
+php: 7.1
+
+env:
+  - SHARPEYE_BROWSER=chrome
+  - SHARPEYE_BROWSER=firefox
+
+branches:
+  only:
+    - master
+
+cache:
+  apt: true
+  directories:
+    - "$HOME/.composer/cache"
+    - "$HOME/.drush/cache"
+
+services:
+  - docker
+
+addons:
+  artifacts:
+    region: eu-west-1
+    paths:
+      - /tmp/sharpeye
+  apt:
+    packages:
+      - graphicsmagick
+
+before_install:
+  - source ./scripts/setup-env.sh
+  - bash -x -e ./scripts/before-install.sh
+
+install:
+  - bash -x -e ./scripts/install.sh
+
+before_script:
+  - bash -x -e ./scripts/setup.sh
+
+script:
+  - bash -x -e ./scripts/build.sh
+  - bash -x -e ./scripts/visual.sh
