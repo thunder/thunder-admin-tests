@@ -30,3 +30,6 @@ addons:
 
 before_install:
   - bash -x -e ./scripts/before-install.sh
+
+install:
+  - bash -x -e ./scripts/install.sh
