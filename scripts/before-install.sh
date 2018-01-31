@@ -2,7 +2,7 @@
 
 # add recent nodejs
 source ~/.nvm/nvm.sh
-nvm install stable
+nvm install stable -q
 
 # remove xdebug to make php execute faster
 phpenv config-rm xdebug.ini
