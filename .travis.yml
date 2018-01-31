@@ -10,11 +10,11 @@ branches:
   only:
     - master
 
-#cache:
-#  apt: true
-#  directories:
-#    - "$HOME/.composer/cache"
-#    - "$HOME/.drush/cache"
+cache:
+  apt: true
+  directories:
+    - "$HOME/.composer/cache"
+    - "$HOME/.drush/cache"
 
 #services:
 #  - docker
