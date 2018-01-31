@@ -29,7 +29,14 @@ addons:
       - graphicsmagick
 
 before_install:
+  - source ./scripts/setup-env.sh
   - bash -x -e ./scripts/before-install.sh
 
 install:
   - bash -x -e ./scripts/install.sh
+
+before_script:
+  - bash -x -e ./scripts/setup.sh
+
+script:
+  - bash -x -e ./scripts/run.sh
