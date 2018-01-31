@@ -3,7 +3,7 @@ sudo: false
 php: 7.1
 
 env:
-  - SHARPEYE_BROWSER=chrome
+#  - SHARPEYE_BROWSER=chrome
   - SHARPEYE_BROWSER=firefox
 
 branches:
