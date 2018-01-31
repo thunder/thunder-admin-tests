@@ -11,7 +11,8 @@ composer require drush/drush:~8.1
 cd ~/builds
 git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x
 
-ls ~/builds/thunder/docroot/themes ~/builds/thunder/docroot/themes/contrib
+ls -R
+
 rm -rf ~/builds/thunder/docroot/themes/contrib/thunder_admin/
 ln -s ~/builds/theme-thunder-admin ~/builds/thunder/docroot/themes/contrib/thunder_admin
 
