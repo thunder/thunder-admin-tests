@@ -2,7 +2,7 @@
 
 cd ${THEME}
 
-echo '.ui-dialog .ui-widget-content.ui-dialog-content{background:#fff;}' >> ${THUNDER}/docroot/core/themes/seven/css/components/dialog.css
+echo '.ui-dialog .ui-widget-content.ui-dialog-content{background:#aaa;}' >> ${THUNDER}/docroot/core/themes/seven/css/components/dialog.css
 
 # Run build scripts
 node --version
