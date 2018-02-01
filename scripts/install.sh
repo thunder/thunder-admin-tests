@@ -17,8 +17,14 @@ git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git 
 rm -rf ${THEME}
 mv ~/builds/theme-thunder-admin ${THEME}
 
+cd ${THEME}
+
+# Pull images
+###echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
+git-lfs pull
+
+cd ${THUNDER}/docroot
 
 # Install thunder
-cd ${THUNDER}/docroot
 # /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`"
 ${THUNDER}/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y

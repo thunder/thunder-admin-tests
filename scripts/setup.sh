@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
-cd ${THUNDER}
+### Rebuild caches and start servers
 
-# Rebuild caches and start servers
 cd ${THUNDER}/docroot
 
 # Final cache rebuild, to make sure every code change is respected
@@ -25,9 +24,3 @@ fi
 
 # Show dockers
 docker ps -a
-
-cd ${THEME}
-
-# Pull images
-echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
-git-lfs pull
