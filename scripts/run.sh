@@ -2,8 +2,8 @@
 
 cd ${THEME}
 
-# Run build script
-npm run build
+# Run build scripts
+yarn
 
 # Compare
 git status
