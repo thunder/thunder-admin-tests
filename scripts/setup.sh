@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 cd ${THUNDER}
 
 # Rebuild caches and start servers
