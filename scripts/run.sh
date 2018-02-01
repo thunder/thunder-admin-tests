@@ -6,6 +6,7 @@ cd ${THEME}
 yarn run styles
 
 # Compare
+git status
 git diff --word-diff=porcelain
 
 # Do some linting

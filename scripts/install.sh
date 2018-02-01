@@ -7,7 +7,7 @@ cd ${THUNDER}
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
 # this actually does the 'composer install'
-composer require drush/drush:~8.1
+composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev
 
 # Checkout theme
 cd ~/builds
