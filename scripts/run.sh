@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo '' > ${THUNDER}/docroot/core/themes/seven/css/components/dialog.css
+#echo '' > ${THUNDER}/docroot/core/themes/seven/css/components/dialog.css
 
 cd ${THEME}
 
