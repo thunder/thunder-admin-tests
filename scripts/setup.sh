@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
 cd ${THEME}
-drush sa
+
+# Install packages
+node -v
 yarn install
