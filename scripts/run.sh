@@ -2,16 +2,14 @@
 
 cd ${THEME}
 
-# Compile css
-yarn run styles
+# Run build script
+npm run build
 
 # Compare
 git status
 git diff --word-diff=porcelain
 
 # Do some linting
-yarn run js
-
 
 # Run visual regression tests
 ./node_modules/.bin/sharpeye --single-browser ${SHARPEYE_BROWSER}
