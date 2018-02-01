@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo '' > ${thunder}/docroot/core/themes/seven/css/components/dialog.css
+
 cd ${THEME}
 
 # Run build scripts
