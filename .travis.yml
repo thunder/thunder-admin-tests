@@ -39,4 +39,5 @@ before_script:
   - bash -x -e ./scripts/setup.sh
 
 script:
-  - bash -x -e ./scripts/run.sh
+  - bash -x -e ./scripts/build.sh
+  - bash -x -e ./scripts/visual.sh

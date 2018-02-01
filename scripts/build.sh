@@ -15,7 +15,3 @@ git diff --word-diff=porcelain --exit-code
 
 # @todo Do some linting
 
-# Run visual regression tests
-./node_modules/.bin/sharpeye --single-browser ${SHARPEYE_BROWSER}
-
-
