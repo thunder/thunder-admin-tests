@@ -19,8 +19,8 @@ mv ~/builds/theme-thunder-admin ${THEME}
 
 cd ${THEME}
 
-# Pull images
-###echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
+# Pull images (and add gitattributes otherwise images show up as modified)
+echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 git-lfs pull
 
 cd ${THUNDER}/docroot
