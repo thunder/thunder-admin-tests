@@ -34,4 +34,4 @@ git-lfs pull
 
 # Install npm packages
 node -v
-yarn install
+yarn install --ignore-scripts
