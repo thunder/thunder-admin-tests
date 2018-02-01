@@ -31,7 +31,3 @@ cd ${THEME}
 # Pull images
 echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 git-lfs pull
-
-# Install npm packages
-node -v
-yarn install --ignore-scripts
