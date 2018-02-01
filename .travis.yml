@@ -16,8 +16,8 @@ cache:
     - "$HOME/.composer/cache"
     - "$HOME/.drush/cache"
 
-#services:
-#  - docker
+services:
+  - docker
 
 addons:
   artifacts:
