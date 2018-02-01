@@ -28,6 +28,9 @@ docker ps -a
 
 cd ${THEME}
 
+# Pull images
+git-lfs pull
+
 # Install npm packages
 node -v
 yarn install
