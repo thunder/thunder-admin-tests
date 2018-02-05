@@ -2,8 +2,7 @@
 
 cd ${THEME}
 
-echo '.ui-dialog .ui-widget-content.ui-dialog-content{background:#aaa;}' >> ${THUNDER}/docroot/core/themes/seven/css/components/dialog.css
-
+echo 'console.log()' >> ${THEME}/js/tabledrag.checkbox.js
 # Run build scripts
 node --version
 npm --version
