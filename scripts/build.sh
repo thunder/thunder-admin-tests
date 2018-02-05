@@ -2,7 +2,6 @@
 
 cd ${THEME}
 
-echo 'console.log()' >> ${THEME}/js/tabledrag.checkbox.js
 # Run build scripts
 node --version
 npm --version
