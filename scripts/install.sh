@@ -11,7 +11,7 @@ composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev
 
 # Checkout theme
 if [ ! -d "$HOME/builds/BurdaMagazinOrg/theme-thunder-admin" ]; then
-    mkdir ~builds/BurdaMagazinOrg
+    mkdir ~/builds/BurdaMagazinOrg
     cd  ~/builds/BurdaMagazinOrg
     git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x
 fi
