@@ -3,12 +3,13 @@ sudo: false
 php: 7.1
 
 env:
-  - SHARPEYE_BROWSER=chrome
-  - SHARPEYE_BROWSER=firefox
   global:
     -THUNDER=`echo ${TRAVIS_BUILD_DIR}"/../thunder"`
     -THEME=`echo ${THUNDER}"/docroot/themes/contrib/thunder_admin/"`
     -PATH="$THUNDER/bin:$PATH"
+  matrix:
+    - SHARPEYE_BROWSER=chrome
+    - SHARPEYE_BROWSER=firefox
 
 branches:
   only:
