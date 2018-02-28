@@ -10,12 +10,15 @@ cd ${THUNDER}
 composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev
 
 # Checkout theme
-cd ~/builds
-git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x
+if [ ! -d "~/builds/BurdaMagazinOrg/theme-thunder-admin" ]; then
+    mkdir ~builds/BurdaMagazinOrg
+    cd  ~/builds/BurdaMagazinOrg
+    git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x
+endif
 
 # Move theme to destination
 rm -rf ${THEME}
-mv ~/builds/theme-thunder-admin ${THEME}
+mv ~/builds/BurdaMagazinOrg/theme-thunder-admin ${THEME}
 
 cd ${THEME}
 
