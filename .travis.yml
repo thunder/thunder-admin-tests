@@ -36,7 +36,7 @@ install:
   - bash -x -e ./scripts/install.sh
 
 before_script:
-  - bash -x -e ./scripts/setup.sh
+  - bash -x -e ./scripts/before-script.sh
 
 script:
   - bash -x -e ./scripts/build.sh
