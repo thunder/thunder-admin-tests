@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cd ${THEME}
+cd ${HOME}/builds/thunder/docroot/themes/contrib/thunder_admin
 
 # Run build scripts
 node --version

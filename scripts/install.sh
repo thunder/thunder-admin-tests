@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Create thunder project
-composer create-project burdamagazinorg/thunder-project:2.x ${THUNDER} --stability dev --no-interaction --no-install
+composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/builds/thunder --stability dev --no-interaction --no-install
 
 cd ${THUNDER}
 
@@ -10,17 +10,17 @@ cd ${THUNDER}
 composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev
 
 # Move theme to destination
-rm -rf ${THEME}
-mv  ${HOME}/builds/BurdaMagazinOrg/theme-thunder-admin ${THEME}
+rm -rf ${HOME}/builds/thunder/docroot/themes/contrib/thunder_admin
+mv ${HOME}/builds/BurdaMagazinOrg/theme-thunder-admin ${HOME}/builds/thunder/docroot/themes/contrib/thunder_admin
 
-cd ${THEME}
+cd ${HOME}/builds/thunder/docroot/themes/contrib/thunder_admin
 
 # Pull images (and add gitattributes otherwise images show up as modified)
 echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 git-lfs pull
 
-cd ${THUNDER}/docroot
+cd ${HOME}/builds/thunder/docroot
 
 # Install thunder
 # /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`"
-${THUNDER}/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
+${HOME}/builds/thunder/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y

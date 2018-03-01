@@ -2,7 +2,7 @@
 
 ### Rebuild caches and start servers
 
-cd ${THUNDER}/docroot
+cd ${HOME}/builds/thunder/docroot
 
 # Final cache rebuild, to make sure every code change is respected
 drush cr
