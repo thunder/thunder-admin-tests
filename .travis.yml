@@ -34,14 +34,14 @@ addons:
 
 before_install:
   - git clone --depth 1 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x ${HOME}/builds/BurdaMagazinOrg/theme-thunder-admin
-  - bash -x -e before-install.sh
+  - before-install.sh
 
-giinstall:
-  - bash -x -e install.sh
+install:
+  - install.sh
 
 before_script:
-  - bash -x -e before-script.sh
+  - before-script.sh
 
 script:
-  - bash -x -e build.sh
-  - bash -x -e visual.sh
+  - build.sh
+  - visual.sh
