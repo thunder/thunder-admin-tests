@@ -19,7 +19,7 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 git-lfs pull
 
-cd ${HOME}/build/thunder/docroot
+cd ${HOME}/build/test-dir/docroot
 
 # Install thunder
 # /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`"
