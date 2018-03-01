@@ -4,7 +4,7 @@ php: 7.1
 
 env:
   global:
-    - PATH="${HOME}/builds/thunder/thunder-admin-tests/scripts:$PATH"
+    - PATH="${HOME}/build/thunder/thunder-admin-tests/scripts:$PATH"
   matrix:
     - SHARPEYE_BROWSER=chrome
     - SHARPEYE_BROWSER=firefox
@@ -33,11 +33,7 @@ addons:
       - graphicsmagick
 
 before_install:
-  - git clone --depth 1 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x ${HOME}/builds/BurdaMagazinOrg/theme-thunder-admin
-  - ls ${HOME}
-  - ls ${HOME}/build
-  - ls $HOME/builds/thunder/thunder-admin-tests/scripts
-  - echo $PATH
+  - git clone --depth 1 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x ${HOME}/build/BurdaMagazinOrg/theme-thunder-admin
   - before-install.sh
 
 install:
