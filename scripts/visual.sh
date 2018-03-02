@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -ex
+#!/bin/bash -ex
 
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 

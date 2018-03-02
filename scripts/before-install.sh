@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -ex
+#!/bin/bash -ex
 
 # Remove xdebug to make php execute faster
 phpenv config-rm xdebug.ini
