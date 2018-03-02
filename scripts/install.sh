@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -x -e
 
 # Create thunder project
 composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
