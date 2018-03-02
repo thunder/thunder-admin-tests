@@ -7,6 +7,10 @@ node --version
 npm --version
 yarn
 
+unset -e
+find sausage
+set -e
+
 # Compare
 git status
 git diff --word-diff=porcelain --exit-code
