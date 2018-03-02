@@ -1,4 +1,4 @@
-#!/bin/bash -x -e
+#!/usr/bin/env bash -ex
 
 ### Rebuild caches and start servers
 

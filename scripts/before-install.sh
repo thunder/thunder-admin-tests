@@ -1,7 +1,8 @@
-#!/bin/bash -ex
+#!/usr/bin/env bash -ex
 
 # Remove xdebug to make php execute faster
 phpenv config-rm xdebug.ini
+find sausage
 
 # Show php modules
 php -m
