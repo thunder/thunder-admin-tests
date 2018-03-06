@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash -ex
 
 ### Rebuild caches and start servers
 
-cd ${THUNDER}/docroot
+cd ${HOME}/build/test-dir/docroot
 
 # Final cache rebuild, to make sure every code change is respected
 drush cr

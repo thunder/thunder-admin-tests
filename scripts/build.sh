@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash -ex
 
-cd ${THEME}
+cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Run build scripts
 node --version

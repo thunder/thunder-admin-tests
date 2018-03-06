@@ -1,8 +1,4 @@
-#!/usr/bin/env bash
-
-# Add recent nodejs
-##source ~/.nvm/nvm.sh 2> /dev/null
-##nvm install stable 2> /dev/null
+#!/bin/bash -ex
 
 # Remove xdebug to make php execute faster
 phpenv config-rm xdebug.ini

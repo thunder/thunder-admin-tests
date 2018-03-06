@@ -1,30 +1,26 @@
-#!/usr/bin/env bash
+#!/bin/bash -ex
 
 # Create thunder project
-composer create-project burdamagazinorg/thunder-project:2.x ${THUNDER} --stability dev --no-interaction --no-install
+composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
 
-cd ${THUNDER}
+cd ${HOME}/build/test-dir
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
 # this actually does the 'composer install'
 composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev
 
-# Checkout theme
-cd ~/builds
-git clone --depth=50 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x
-
 # Move theme to destination
-rm -rf ${THEME}
-mv ~/builds/theme-thunder-admin ${THEME}
+rm -rf ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
+mv ${HOME}/build/BurdaMagazinOrg/theme-thunder-admin ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
-cd ${THEME}
+cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Pull images (and add gitattributes otherwise images show up as modified)
 echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 git-lfs pull
 
-cd ${THUNDER}/docroot
+cd ${HOME}/build/test-dir/docroot
 
 # Install thunder
 # /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`"
-${THUNDER}/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
+${HOME}/build/test-dir/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
