@@ -5,7 +5,7 @@ if [ ${THUNDER} = "develop" ]; then
     composer create-project thunder/thunder-develop:dev-feature/multiple-repos ${HOME}/build/test-dir --stability dev --no-interaction --no-install
     cd ${HOME}/build/test-dir
 
-    if [ -z $DRUPAL_BRANCH ]; then
+    if [ -n "$DRUPAL_BRANCH" ]; then
         composer require drupal/core ${DRUPAL_BRANCH}-dev
     fi
 
