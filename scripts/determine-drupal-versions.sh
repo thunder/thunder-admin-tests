@@ -28,5 +28,3 @@ if [ -n "$DRUPAL_BRANCH" ]; then
  echo "Drupal branch to check ${DRUPAL_BRANCH}"
  export DRUPAL_BRANCH
 fi
-
-exit 0
