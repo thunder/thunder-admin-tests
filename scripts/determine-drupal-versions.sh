@@ -18,14 +18,10 @@ fi
 
 if [ "${DRUPAL}" = "next" ] && [ "${#branchesToCheck[@]}" > 1 ];then
   DRUPAL_BRANCH=$(printf -- '%s\n' "${branchesToCheck[@]}" | head -1)
+  # Fail if there is no branch.
+  [[ -z "$DRUPAL_BRANCH" ]] && exit 1
 fi
 
 echo "Latest drupal version is ${latest}"
 
-
-if [ -z "$DRUPAL_BRANCH" ]; then
-  # Fail if there is no branch.
-  exit 1
-else
-   echo "Drupal branch to check ${DRUPAL_BRANCH}"
-fi
+[[ -n "$DRUPAL_BRANCH" ]] && echo "Drupal branch to check ${DRUPAL_BRANCH}"
