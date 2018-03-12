@@ -1,17 +1,16 @@
 #!/bin/bash -ex
 
 # Create thunder project
+composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
+
 if [ ${THUNDER} = "develop" ]; then
-    composer create-project thunder/thunder-develop:dev-feature/multiple-repos ${HOME}/build/test-dir --stability dev --no-interaction --no-install
     cd ${HOME}/build/test-dir
 
     if [ -n "$DRUPAL_BRANCH" ]; then
-        composer require drupal/core ${DRUPAL_BRANCH}-dev
+        composer require burdamagazinorg/thunder:dev-develop drupal/core:${DRUPAL_BRANCH}-dev
+    else
+        composer require burdamagazinorg/thunder:dev-develop
     fi
-
-else
-    # Use stable version of thunder
-    composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
 fi
 
 cd ${HOME}/build/test-dir
