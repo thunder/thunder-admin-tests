@@ -1,5 +1,6 @@
 #!/bin/bash
 latest=$(git ls-remote --t https://github.com/drupal/core.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | awk -F '/' '{ print $3 }' | sort -r | head -1)
+echo "Latest drupal version is ${latest}"
 
 branches=( $(git ls-remote -h https://github.com/drupal/core.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r) )
 tags=( $(git ls-remote -t https://github.com/drupal/core.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r))
@@ -13,7 +14,7 @@ for branch in "${branches[@]}"; do
 done
 
 if [ "${DRUPAL}" = "current" ]; then
-  export DRUPAL_BRANCH=$(printf -- '%s\n' "${branchesToCheck[@]}" | tail -n1)
+  DRUPAL_BRANCH=$(printf -- '%s\n' "${branchesToCheck[@]}" | tail -n1)
 fi
 
 if [ "${DRUPAL}" = "next" ];then
@@ -23,6 +24,9 @@ if [ "${DRUPAL}" = "next" ];then
   [[ -z "$DRUPAL_BRANCH" ]] && echo "No tag on next version branch." && exit 1
 fi
 
-[[ -n "$DRUPAL_BRANCH" ]] && echo "Drupal branch to check ${DRUPAL_BRANCH}"
-echo "Latest drupal version is ${latest}"
+if [ -n "$DRUPAL_BRANCH" ]; then
+ echo "Drupal branch to check ${DRUPAL_BRANCH}"
+ export DRUPAL_BRANCH
+fi
+
 exit 0
