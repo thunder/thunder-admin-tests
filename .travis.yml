@@ -12,9 +12,10 @@ env:
     - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
     - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=current
     - SHARPEYE_BROWSER=firefox
-    allow_failures:
-      - env: SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=next
-      - env: SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
+
+matrix:
+  allow_failures:
+    - env: DRUPAL=next
 
 branches:
   only:
