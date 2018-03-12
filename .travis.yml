@@ -15,7 +15,8 @@ env:
 
 matrix:
   allow_failures:
-    - env: DRUPAL=next
+    - env: SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
+    - env: SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=next
 
 branches:
   only:
