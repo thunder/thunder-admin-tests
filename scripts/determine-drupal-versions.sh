@@ -16,10 +16,11 @@ if [ "${DRUPAL}" = "current" ]; then
   DRUPAL_BRANCH=$(printf -- '%s\n' "${branchesToCheck[@]}" | tail -n1)
 fi
 
-if [ "${DRUPAL}" = "next" ] && [ "${#branchesToCheck[@]}" > 1 ];then
-  DRUPAL_BRANCH=$(printf -- '%s\n' "${branchesToCheck[@]}" | head -1)
+if [ "${DRUPAL}" = "next" ];then
+  [[ "${#branchesToCheck[@]}" -gt 1 ]] && DRUPAL_BRANCH=$(printf -- '%s\n' "${branchesToCheck[@]}" | head -1)
+
   # Fail if there is no branch.
-  [[ -z "$DRUPAL_BRANCH" ]] && exit 1
+  [[ -z "$DRUPAL_BRANCH" ]] && echo "No tag on next version branch." && exit 1
 fi
 
 echo "Latest drupal version is ${latest}"
