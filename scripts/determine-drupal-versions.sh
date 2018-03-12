@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash
 latest=$(git ls-remote --t https://github.com/drupal/core.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | awk -F '/' '{ print $3 }' | sort -r | head -1)
 
 branches=( $(git ls-remote -h https://github.com/drupal/core.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r) )
@@ -25,3 +25,4 @@ fi
 
 [[ -n "$DRUPAL_BRANCH" ]] && echo "Drupal branch to check ${DRUPAL_BRANCH}"
 echo "Latest drupal version is ${latest}"
+exit 0
