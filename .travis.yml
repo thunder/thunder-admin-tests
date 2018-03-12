@@ -8,9 +8,9 @@ env:
   matrix:
   - SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=next
   - SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=current
+  - SHARPEYE_BROWSER=chrome
   - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
   - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=current
-  - SHARPEYE_BROWSER=chrome
   - SHARPEYE_BROWSER=firefox
   allow_failures:
     - DRUPAL=next
