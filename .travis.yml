@@ -8,10 +8,12 @@ env:
   matrix:
     - SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=next
     - SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=current
+    - SHARPEYE_BROWSER=chrome THUNDER=feature/2908887-paragraphs-experimental
     - SHARPEYE_BROWSER=chrome
     - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
     - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=current
     - SHARPEYE_BROWSER=firefox
+    - SHARPEYE_BROWSER=firefox THUNDER=feature/2908887-paragraphs-experimental
 
 matrix:
   allow_failures:
