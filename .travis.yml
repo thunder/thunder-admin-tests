@@ -5,13 +5,10 @@ php: 7.1
 env:
   - SHARPEYE_BROWSER=chrome
   - SHARPEYE_BROWSER=firefox
-  global:
-    - PATH="${HOME}/build/thunder/thunder-admin-tests/scripts:${HOME}/build/test-dir/bin:$PATH"
-  matrix:
-    - THUNDER=develop DRUPAL=next
-    - THUNDER=develop DRUPAL=current
-    - THUNDER=feature/2908887-paragraphs-experimental
-    - FOO=bar
+  - PATH="${HOME}/build/thunder/thunder-admin-tests/scripts:${HOME}/build/test-dir/bin:$PATH"
+  - THUNDER=develop DRUPAL=next
+  - THUNDER=develop DRUPAL=current
+  - THUNDER=feature/2908887-paragraphs-experimental
 
 matrix:
   allow_failures:
