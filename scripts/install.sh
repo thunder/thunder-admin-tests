@@ -3,7 +3,7 @@
 # Create thunder project
 composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
 
-if [ -n ${THUNDER} ]; then
+if [ -n "${THUNDER}" ]; then
     cd ${HOME}/build/test-dir
     if  [ -n "${DRUPAL_BRANCH}" ];then
         composer require burdamagazinorg/thunder:dev-${THUNDER} drupal/core:${DRUPAL_BRANCH}-dev
