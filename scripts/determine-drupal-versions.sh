@@ -1,15 +1,18 @@
 #!/bin/bash
-latest=$(git ls-remote --t https://github.com/drupal/core.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | awk -F '/' '{ print $3 }' | sort -r | head -1)
+latest=$(git ls-remote --t https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | awk -F '/' '{ print $3 }' | sort -r | head -1)
 echo "Latest drupal version is ${latest}"
 
-branches=( $(git ls-remote -h https://github.com/drupal/core.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r) )
-tags=( $(git ls-remote -t https://github.com/drupal/core.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r))
+branches=( $(git ls-remote -h https://github.com/drupal/drupal.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r) )
+tags=( $(git ls-remote -t https://github.com/drupal/drupal.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r))
 branchesToCheck=()
 
+# Determine which branches are eligible to be tested. Branches are ordered in a descending manner.
 for branch in "${branches[@]}"; do
     gotTag=( $(echo ${tags[@]} | grep ${branch%.x}) )
     islatest=( $(printf -- '%s\n' "${tags[@]}" | grep ${branch%.x} | grep ${latest}))
+    # Add branch if it got tags.
     [[ "${#gotTag}" -ne 0 ]] && branchesToCheck+=($branch)
+    # Found branch corresponding to drupal latest version, break since we do not check old branches.
     [[ "${#islatest}" -ne 0 ]] && break
 done
 
