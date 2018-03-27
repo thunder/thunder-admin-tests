@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# Get latest drupal version.
+# Use github mirror since http://git.drupal.org/project/drupal.git seems to fail quite often.
 latest=$(git ls-remote --t https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | awk -F '/' '{ print $3 }' | sort -r | head -1)
 echo "Latest drupal version is ${latest}"
 
