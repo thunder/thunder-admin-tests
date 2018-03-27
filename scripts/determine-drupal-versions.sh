@@ -5,7 +5,7 @@
 # Use grep since ls-remote refs patterns are not regex.
 latestVersion=$(git ls-remote --tags https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | cut -d/ -f3 | tail -1 |grep '[0-9]*$')
 
-# Get branch for current and next minot version
+# Get branch for current and next minor version
 branchesToCheck=( $(git ls-remote -h https://github.com/drupal/drupal.git 8* | cut -d/ -f3 | grep -A1 ${latestVersion%[0-9]*}x ) )
 
 if [ "${DRUPAL}" = "current" ]; then
@@ -18,7 +18,7 @@ if [ "${DRUPAL}" = "next" ] && [ "${#branchesToCheck}" -gt 1 ];then
   [[ "${#gotTag}" -ne 0 ]] && export DRUPAL_BRANCH=${branchesToCheck[1]}
 
   # Fail if there is no branch.
-  [[ -z "$DRUPAL_BRANCH" ]] && echo "No tag on next version branch." && exit 1
+  [[ -z "$DRUPAL_BRANCH" ]] && echo "No tag on next minor version branch." && exit 1
 fi
 
 if [ -n "$DRUPAL_BRANCH" ]; then
