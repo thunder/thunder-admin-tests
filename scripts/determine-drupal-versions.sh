@@ -2,11 +2,11 @@
 
 # Get latest drupal version.
 # Use github mirror since http://git.drupal.org/project/drupal.git seems to fail quite often.
-latest=$(git ls-remote --t https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | awk -F '/' '{ print $3 }' | sort -r | head -1)
-echo "Latest drupal version is ${latest}"
+# Use grep since ls-remote refs patterns are f
+latest=$(git ls-remote --tags https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | cut -d/ -f3 | sort -rV | head -1)
 
-branches=( $(git ls-remote -h https://github.com/drupal/drupal.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r) )
-tags=( $(git ls-remote -t https://github.com/drupal/drupal.git |awk -F '/' '{ print $3 }' | grep -e '8' | sort -r))
+branches=( $(git ls-remote -h https://github.com/drupal/drupal.git 8* | cut -d/ -f3 | sort -rV) )
+tags=( $(git ls-remote -t https://github.com/drupal/drupal.git 8* | cut -d/ -f3 | sort -rV))
 branchesToCheck=()
 
 # Determine which branches are eligible to be tested. Branches are ordered in a descending manner.
