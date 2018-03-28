@@ -3,6 +3,15 @@
 # Create thunder project
 composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
 
+if [ -n "${THUNDER}" ]; then
+    cd ${HOME}/build/test-dir
+    if  [ -n "${DRUPAL_BRANCH}" ];then
+        composer require burdamagazinorg/thunder:dev-${THUNDER} drupal/core:${DRUPAL_BRANCH}-dev
+    else
+        composer require burdamagazinorg/thunder:dev-${THUNDER}
+    fi
+fi
+
 cd ${HOME}/build/test-dir
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all

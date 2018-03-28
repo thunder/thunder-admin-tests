@@ -6,8 +6,17 @@ env:
   global:
     - PATH="${HOME}/build/thunder/thunder-admin-tests/scripts:${HOME}/build/test-dir/bin:$PATH"
   matrix:
+    - SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=next
+    - SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=current
     - SHARPEYE_BROWSER=chrome
+    - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
+    - SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=current
     - SHARPEYE_BROWSER=firefox
+
+matrix:
+  allow_failures:
+    - env: SHARPEYE_BROWSER=firefox THUNDER=develop DRUPAL=next
+    - env: SHARPEYE_BROWSER=chrome THUNDER=develop DRUPAL=next
 
 branches:
   only:
@@ -34,6 +43,7 @@ addons:
 
 before_install:
   - git clone --depth 1 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-2.x ${HOME}/build/BurdaMagazinOrg/theme-thunder-admin
+  - source determine-drupal-versions.sh
   - before-install.sh
 
 install:
