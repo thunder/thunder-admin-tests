@@ -3,7 +3,7 @@
 # Get latest drupal version.
 # Use github mirror since http://git.drupal.org/project/drupal.git seems to fail quite often.
 # Use grep since ls-remote refs patterns are not regex.
-latestVersion=$(git ls-remote --tags https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | cut -d/ -f3 | tail -1 |grep '[0-9]*$')
+latestVersion=$(git ls-remote --tags https://github.com/drupal/drupal.git | grep -o 'refs/tags/[0-9]*\.[0-9]*\.[0-9]*$' | cut -d/ -f3 | tail -1)
 
 # Get branch for current and next minor version
 branchesToCheck=( $(git ls-remote -h https://github.com/drupal/drupal.git 8* | cut -d/ -f3 | grep -A1 ${latestVersion%[0-9]*}x ) )
