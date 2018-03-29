@@ -9,31 +9,19 @@ if [ ${UPDATE_SCREENSHOTS} == "true" ] && [ ${TRAVIS_PULL_REQUEST}  != 'false' ]
     CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
 
     if [ "${#CHANGES}" > 0 ]; then
+
+        git clone https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${TRAVIS_PULL_REQUEST_SLUG}.git -b ${TRAVIS_PULL_REQUEST_BRANCH} update
+        cd update
+        echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
+        git-lfs pull
+
         for SCREENSHOT in "${CHANGES[@]}"
         do
             cp /tmp/sharpeye/${TRAVIS_JOB_ID}/screen/${SCREENSHOT} ./screenshots/reference/
         done
+
+        git status
+        git commit screenshots/reference/ -m 'Updated visual reference images'
+        git push
     fi
-
-    git status
-    # Set configuration.
-    git config --global user.email "technology@thunder.org"
-    git config --global user.name "ThunderTechAccount"
-    # Checkout branch.
-    git remote set-branches origin ${TRAVIS_PULL_REQUEST_BRANCH}
-    git fetch --depth 1 origin ${TRAVIS_PULL_REQUEST_BRANCH}
-    git checkout ${TRAVIS_PULL_REQUEST_BRANCH}
-    # Commit changes.
-#    git commit screenshots/reference/-m 'TRAVIS: Updated visual reference images'
-    git status
-
-#    git config --global credential.helper store
-#    echo "https://${GITHUB_TOKEN}:x-oauth-basic@github.com" >> ~/.git-credentials
-#    git config lfs.https://github.com/BurdaMagazinOrg/theme-thunder-admin.locksverify false
-#    git config lfs.https://github.com/BurdaMagazinOrg/theme-thunder-admin.git/info/lfs.access=basic
-#    git config remote.origin.lfsurl https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${TRAVIS_PULL_REQUEST_SLUG}.git
-    #git remote set-url origin https://${GITHUB_TOKEN}@github.com/${TRAVIS_PULL_REQUEST_SLUG}.git
-#    git remote set-url origin https://github.com/${TRAVIS_PULL_REQUEST_SLUG}.git
-#    git push
 fi
-
