@@ -2,7 +2,10 @@
 
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
-if [ ${UPDATE_SCREENSHOTS} == "true" ] && [ ${TRAVIS_PULL_REQUEST}  == 'true' ]; then
+# Update reference images for visual regression tests.
+#
+# Copy images and push to branch
+if [ ${UPDATE_SCREENSHOTS} == "true" ] && [ ${TRAVIS_PULL_REQUEST}  != 'false' ]; then
     CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
 
     if [ "${#CHANGES}" > 0 ]; then
@@ -16,7 +19,9 @@ if [ ${UPDATE_SCREENSHOTS} == "true" ] && [ ${TRAVIS_PULL_REQUEST}  == 'true' ];
     # Set configuration.
     git config --global user.email "travis@thunder.org"
     git config --global user.name "Travis CI"
-    # checkout branch.
+    # Checkout branch.
+    git remote set-branches origin ${TRAVIS_PULL_REQUEST_BRANCH}
+    git fetch --depth 1 origin ${TRAVIS_PULL_REQUEST_BRANCH}
     git checkout ${TRAVIS_PULL_REQUEST_BRANCH}
     # Commit changes.
     git commit screenshots/screen/* -m 'TRAVIS: Updated visual reference images'
