@@ -5,7 +5,7 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 # Update reference images for visual regression tests.
 #
 # Copy images and push to branch
-if [ ${UPDATE_SCREENSHOTS} == "true" ] && [ ${TRAVIS_PULL_REQUEST}  != 'false' ]; then
+if [ -n "${UPDATE_SCREENSHOTS}" ] && [ ${TRAVIS_PULL_REQUEST}  != 'false' ]; then
     CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
 
     if [ "${#CHANGES}" > 0 ]; then
