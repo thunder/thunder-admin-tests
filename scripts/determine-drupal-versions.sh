@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Get latest drupal version.
+# Determine latest drupal version and dev branches.
+#
 # Use github mirror since http://git.drupal.org/project/drupal.git seems to fail quite often.
-# Use grep since ls-remote refs patterns are not regex.
 refs=( $(git ls-remote https://github.com/drupal/drupal.git 8*) )
 
 # Get latest drupal 8 version.
@@ -35,3 +35,4 @@ if [ -n "$DRUPAL_BRANCH" ]; then
 fi
 
 export DRUPAL_BRANCH
+
