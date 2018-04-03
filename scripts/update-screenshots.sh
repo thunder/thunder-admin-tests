@@ -7,11 +7,11 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 # Copy images and push to branch
 if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMagazinOrg/theme-thunder-admin" ]; then
 
-    CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
-
-    if [ "${#CHANGES}" -eq 0 ]; then
+    if [ ! -d /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ]; then
       exit 0;
     fi
+
+    CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
 
     git config --global user.email "technology@thunder.org"
 
