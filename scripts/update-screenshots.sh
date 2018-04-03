@@ -9,7 +9,7 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
 
     CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
 
-    if [ "${#CHANGES}" > 0 ]; then
+    if [ "${#CHANGES}" -eq 0 ]; then
       exit 0;
     fi
 
