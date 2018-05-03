@@ -15,7 +15,7 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
     TEMPIFS=$IFS
     IFS=$'\n'
 
-    CHANGES=( $(find /tmp/sharpeye/${TRAVIS_JOB_ID}/diff -type f) )
+    CHANGES=( $(find /tmp/sharpeye/${TRAVIS_JOB_ID}/diff -type f -exec basename {} \;) )
 
     # Restore IFS.
     IFS=$TEMPIFS
@@ -34,8 +34,8 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
 
     for SCREENSHOT in "${CHANGES[@]}"
     do
-        cp "${SCREENSHOT}" ./screenshots/reference/
-        git add "./screenshots/reference/${SCREENSHOT##*/}"
+        cp "/tmp/sharpeye/${TRAVIS_JOB_ID}/screen/${SCREENSHOT}" ./screenshots/reference/
+        git add "./screenshots/reference/${SCREENSHOT}"
     done
 
     # Commit and push.
