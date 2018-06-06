@@ -34,5 +34,6 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
     # Commit and push.
     git status
     git commit screenshots/reference/ -m "TRAVIS: Updated visual reference images for ${SHARPEYE_BROWSER}"
+    git pull
     git push
 fi
