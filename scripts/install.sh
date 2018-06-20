@@ -16,7 +16,7 @@ cd ${HOME}/build/test-dir
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
 # this actually does the 'composer install'
-composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev
+composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev thunder/thunder_styleguide
 
 # Move theme to destination
 rm -rf ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin

@@ -4,6 +4,9 @@
 
 cd ${HOME}/build/test-dir/docroot
 
+# Install styleguide
+drush -y en thunder_styleguide
+
 # Final cache rebuild, to make sure every code change is respected
 drush cr
 
