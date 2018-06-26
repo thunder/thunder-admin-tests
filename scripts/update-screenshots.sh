@@ -11,7 +11,14 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
       exit 0;
     fi
 
-    CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
+    # Temporary set Internal Field Separator.
+    TEMPIFS=$IFS
+    IFS=$'\n'
+
+    CHANGES=( $(find /tmp/sharpeye/${TRAVIS_JOB_ID}/diff -type f -exec basename {} \;) )
+
+    # Restore IFS.
+    IFS=$TEMPIFS
 
     git config --global user.email "technology@thunder.org"
 
@@ -27,8 +34,8 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
 
     for SCREENSHOT in "${CHANGES[@]}"
     do
-        cp /tmp/sharpeye/${TRAVIS_JOB_ID}/screen/${SCREENSHOT} ./screenshots/reference/
-        git add ./screenshots/reference/${SCREENSHOT}
+        cp "/tmp/sharpeye/${TRAVIS_JOB_ID}/screen/${SCREENSHOT}" ./screenshots/reference/
+        git add "./screenshots/reference/${SCREENSHOT}"
     done
 
     # Commit and push.
