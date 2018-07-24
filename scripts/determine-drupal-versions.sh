@@ -9,7 +9,7 @@ refs=( $(git ls-remote https://github.com/drupal/drupal.git 8*) )
 latestVersion=$(printf -- '%s\n' ${refs[@]} | grep -o '[0-9]*\.[0-9]*\.[0-9]*$' | tail -1)
 
 # Get branch for current and next minor version
-branchesToCheck=( $(printf -- '%s\n' "${refs[@]}" | grep -A1 ${latestVersion%[0-9]*}x | cut -d/ -f3) )
+branchesToCheck=( $(printf -- '%s\n' "${refs[@]}" | grep -o '[0-9]*\.[0-9]*\.x$' | grep -A1 ${latestVersion%[0-9]*}x | cut -d/ -f3) )
 
 if [ "${DRUPAL}" = "current" ]; then
   # Dev branch for latest drupal version.
