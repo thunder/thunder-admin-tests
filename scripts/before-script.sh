@@ -19,11 +19,9 @@ drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 # Run Selenium2 server with Browser relevant for running environment
 if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
     # Pin chrome 70 (at random).
-    docker pull selenium/standalone-chrome:3.14.0-iron
-    docker run -d -p 4444:4444 --shm-size 256m --net=host selenium/standalone-chrome:latest
+    docker run -d -p 4444:4444 --shm-size 256m --net=host selenium/standalone-chrome:3.14.0-iron
 elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
     # Use firefox 60 (where esr branches off).
-    docker pull selenium/standalone-firefox:3.12.0-cobalt
     docker run -d -p 4444:4444 --shm-size 256m --net=host selenium/standalone-firefox:3.12.0-cobalt
 fi
 
