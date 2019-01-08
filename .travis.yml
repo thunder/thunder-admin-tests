@@ -1,6 +1,5 @@
 language: php
-sudo: false
-php: latest
+php: 7.2
 
 env:
   global:
