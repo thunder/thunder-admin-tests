@@ -1,5 +1,6 @@
 language: php
-php: 7.2
+php:
+ - 7.2
 
 env:
   global:
@@ -19,6 +20,9 @@ matrix:
     - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-2.x DRUPAL=next
     - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-2.x DRUPAL=current
 
+dist:
+  - xenial
+
 branches:
   only:
     - master
@@ -31,7 +35,7 @@ cache:
     - "$HOME/.cache/yarn"
 
 services:
-  - docker
+  - mysql
 
 addons:
   artifacts:
