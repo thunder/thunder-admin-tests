@@ -1,12 +1,12 @@
 #!/bin/bash -ex
 
-# Remove xdebug to make php execute faster
-phpenv config-rm xdebug.ini
+# Disable xdebug.
+echo "" > ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+
+# Stop drush from sending email
+echo "sendmail_path = /bin/true" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+
+phpenv rehash
 
 # Show php modules
 php -m
-
-# Prepare MySQL user and database
-mysql -e "CREATE DATABASE drupal;"
-mysql -e "CREATE USER 'thunder'@'localhost' IDENTIFIED BY 'thunder';"
-mysql -e "GRANT ALL ON drupal.* TO 'thunder'@'localhost';"
