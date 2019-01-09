@@ -10,6 +10,3 @@ yarn
 # Compare
 git status
 git diff --word-diff=porcelain --exit-code
-
-# @todo Do some linting
-

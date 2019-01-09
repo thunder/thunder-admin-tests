@@ -31,5 +31,4 @@ git-lfs pull
 cd ${HOME}/build/test-dir/docroot
 
 # Install thunder
-# /usr/bin/env PHP_OPTIONS="-d sendmail_path=`which true`"
-${HOME}/build/test-dir/bin/drush site-install thunder --account-pass=admin --db-url=mysql://thunder:thunder@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
+${HOME}/build/test-dir/bin/drush site-install thunder --account-pass=admin --db-url=mysql://travis@127.0.0.1/drupal install_configure_form.enable_update_status_module=NULL -y
