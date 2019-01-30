@@ -6,9 +6,7 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 ./node_modules/.bin/sharpeye --single-browser ${SHARPEYE_BROWSER}
 
 # Fail on newly created reference images
-if STATUS=$(git status --porcelain) && [ -n "$STATUS" ]; then
-  echo "Failing due to uncommited changes:" 
-  echo "${STATUS}"
+if [ -n "$(git status --porcelain)" ]; then
   exit 1
 fi
 
