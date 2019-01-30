@@ -7,6 +7,7 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Fail on newly created reference images
 if [ -n "$(git status --porcelain)" ]; then
+  echo "Failing due to uncommited changes in repo, check your reference images."
   exit 1
 fi
 
