@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/bash -ex
 
 if [ -n "DRUPAL_CORE" ]; then
   echo "Drupal core version has already been set to ${DRUPAL_CORE}"
-  exit 1
+  exit 0
 fi
 
 # Determine latest drupal version and dev branches.
