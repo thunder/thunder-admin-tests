@@ -1,14 +1,14 @@
 #!/bin/bash -ex
 
 # Create thunder project
-composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
+composer create-project thunder/thunder-project:3.x ${HOME}/build/test-dir --stability dev --no-interaction --no-install
 
 if [ -n "${THUNDER}" ]; then
     cd ${HOME}/build/test-dir
     if  [ -n "${DRUPAL_CORE}" ];then
-        composer require burdamagazinorg/thunder:dev-${THUNDER} drupal/core:${DRUPAL_CORE} --no-update
+        composer require thunder/thunder-distribution:dev-${THUNDER} drupal/core:${DRUPAL_CORE} --no-update
     else
-        composer require burdamagazinorg/thunder:dev-${THUNDER} --no-update
+        composer require thunder/thunder-distribution:dev-${THUNDER} --no-update
     fi
 fi
 
