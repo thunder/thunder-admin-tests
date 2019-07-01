@@ -5,7 +5,7 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 # Run build scripts
 node --version
 npm --version
-yarn
+npm install
 
 # Compare
 git status
