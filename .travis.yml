@@ -32,11 +32,10 @@ branches:
     - /[0-9]+\.x/
 
 cache:
-  apt: true
+  npm: true
   directories:
     - "$HOME/.composer/cache"
     - "$HOME/.drush/cache"
-    - "$HOME/.cache/yarn"
 
 services:
   - mysql
