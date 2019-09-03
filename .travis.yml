@@ -19,10 +19,10 @@ matrix:
   allow_failures:
     - env: SHARPEYE_BROWSER=chrome THUNDER=3.x-dev DRUPAL_BRANCH=next
     - env: SHARPEYE_BROWSER=chrome THUNDER=3.x-dev DRUPAL_BRANCH=current
-    - env: SHARPEYE_BROWSER=chrome THUNDER=3.x-dev DRUPAL_CORE="~8.6.1"
+    - env: SHARPEYE_BROWSER=chrome THUNDER=3.x-dev DRUPAL_CORE="~8.7.1"
     - env: SHARPEYE_BROWSER=firefox THUNDER=3.x-dev DRUPAL_BRANCH=next
     - env: SHARPEYE_BROWSER=firefox THUNDER=3.x-dev DRUPAL_BRANCH=current
-    - env: SHARPEYE_BROWSER=firefox THUNDER=3.x-dev DRUPAL_CORE="~8.6.1"
+    - env: SHARPEYE_BROWSER=firefox THUNDER=3.x-dev DRUPAL_CORE="~8.7.1"
 
 dist:
   - xenial
