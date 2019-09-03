@@ -6,9 +6,9 @@ composer create-project burdamagazinorg/thunder-project:2.x ${HOME}/build/test-d
 if [ -n "${THUNDER}" ]; then
     cd ${HOME}/build/test-dir
     if  [ -n "${DRUPAL_CORE}" ];then
-        composer require burdamagazinorg/thunder:dev-${THUNDER} drupal/core:${DRUPAL_CORE} --no-update
+        composer require burdamagazinorg/thunder:${THUNDER}-dev drupal/core:${DRUPAL_CORE} --no-update
     else
-        composer require burdamagazinorg/thunder:dev-${THUNDER} --no-update
+        composer require burdamagazinorg/thunder:${THUNDER}-dev --no-update
     fi
 fi
 
