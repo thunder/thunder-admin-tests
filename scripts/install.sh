@@ -6,13 +6,17 @@ composer create-project thunder/thunder-project:3.x ${HOME}/build/test-dir --sta
 if [ -n "${THUNDER}" ]; then
     cd ${HOME}/build/test-dir
     if  [ -n "${DRUPAL_CORE}" ];then
-        composer require thunder/thunder-distribution:dev-${THUNDER} drupal/core:${DRUPAL_CORE} --no-update
+        composer require thunder/thunder-distribution:${THUNDER}-dev drupal/core:${DRUPAL_CORE} --no-update
     else
-        composer require thunder/thunder-distribution:dev-${THUNDER} --no-update
+        composer require thunder/thunder-distribution:${THUNDER}-dev --no-update
     fi
 fi
 
 cd ${HOME}/build/test-dir
+
+# Temporary fix for mink dependency. Has to be removed, if drupal core has sorted this out.
+# See: https://www.drupal.org/project/drupal/issues/3078671
+composer require "behat/mink-selenium2-driver:1.4.x-dev as 1.3.x-dev" --dev --no-update
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
 # this actually does the 'composer install'
