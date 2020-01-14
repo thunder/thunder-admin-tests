@@ -3,8 +3,9 @@
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Use node lts version
-source ${HOME}/.nvm/nvm.sh
+set -x
 nvm install --lts
+set +x
 
 # Run build scripts
 node --version
