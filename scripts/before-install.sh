@@ -10,3 +10,7 @@ phpenv rehash
 
 # Show php modules
 php -m
+
+# Use node 12
+nvm install 12
+nvm use 12
