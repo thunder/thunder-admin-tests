@@ -62,5 +62,5 @@ before_script:
   - before-script.sh
 
 script:
-  - source $HOME/.nvm/nvm.sh build.sh
+  - build.sh
   - visual.sh
