@@ -6,23 +6,23 @@ env:
   global:
     - PATH="${HOME}/build/thunder/thunder-admin-tests/scripts:${HOME}/build/test-dir/bin:$PATH"
   matrix:
-    - SHARPEYE_BROWSER=chrome THUNDER=8.x-3.x DRUPAL_BRANCH=next
-    - SHARPEYE_BROWSER=chrome THUNDER=8.x-3.x DRUPAL_BRANCH=current
-    - SHARPEYE_BROWSER=chrome THUNDER=8.x-3.x DRUPAL_CORE="~8.7.1"
+    - SHARPEYE_BROWSER=chrome THUNDER=8.x-4.x DRUPAL_BRANCH=next
+    - SHARPEYE_BROWSER=chrome THUNDER=8.x-4.x DRUPAL_BRANCH=current
+    - SHARPEYE_BROWSER=chrome THUNDER=8.x-4.x DRUPAL_CORE="~8.8.1"
     - SHARPEYE_BROWSER=chrome
-    - SHARPEYE_BROWSER=firefox THUNDER=8.x-3.x DRUPAL_BRANCH=next
-    - SHARPEYE_BROWSER=firefox THUNDER=8.x-3.x DRUPAL_BRANCH=current
-    - SHARPEYE_BROWSER=firefox THUNDER=8.x-3.x DRUPAL_CORE="~8.7.1"
+    - SHARPEYE_BROWSER=firefox THUNDER=8.x-4.x DRUPAL_BRANCH=next
+    - SHARPEYE_BROWSER=firefox THUNDER=8.x-4.x DRUPAL_BRANCH=current
+    - SHARPEYE_BROWSER=firefox THUNDER=8.x-4.x DRUPAL_CORE="~8.8.1"
     - SHARPEYE_BROWSER=firefox
 
 matrix:
   allow_failures:
-    - env: SHARPEYE_BROWSER=chrome THUNDER=8.x-3.x DRUPAL_BRANCH=next
-    - env: SHARPEYE_BROWSER=chrome THUNDER=8.x-3.x DRUPAL_BRANCH=current
-    - env: SHARPEYE_BROWSER=chrome THUNDER=8.x-3.x DRUPAL_CORE="~8.7.1"
-    - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-3.x DRUPAL_BRANCH=next
-    - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-3.x DRUPAL_BRANCH=current
-    - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-3.x DRUPAL_CORE="~8.7.1"
+    - env: SHARPEYE_BROWSER=chrome THUNDER=8.x-4.x DRUPAL_BRANCH=next
+    - env: SHARPEYE_BROWSER=chrome THUNDER=8.x-4.x DRUPAL_BRANCH=current
+    - env: SHARPEYE_BROWSER=chrome THUNDER=8.x-4.x DRUPAL_CORE="~8.8.1"
+    - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-4.x DRUPAL_BRANCH=next
+    - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-4.x DRUPAL_BRANCH=current
+    - env: SHARPEYE_BROWSER=firefox THUNDER=8.x-4.x DRUPAL_CORE="~8.8.1"
 
 dist:
   - xenial
@@ -56,6 +56,7 @@ before_install:
 
 install:
   - install.sh
+  - nvm install --lts
 
 before_script:
   - before-script.sh

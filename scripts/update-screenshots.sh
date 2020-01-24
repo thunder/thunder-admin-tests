@@ -27,7 +27,7 @@ if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${TRAVIS_PULL_REQUEST_SLUG}" = "BurdaMag
 
     for SCREENSHOT in "${CHANGES[@]}"
     do
-        cp /tmp/sharpeye/${TRAVIS_JOB_ID}/screen/${SCREENSHOT} ./screenshots/reference/
+        cp /tmp/sharpeye/${TRAVIS_JOB_ID}/actual/${SCREENSHOT} ./screenshots/reference/
         git add ./screenshots/reference/${SCREENSHOT}
     done
 
