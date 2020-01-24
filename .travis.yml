@@ -50,7 +50,7 @@ addons:
       - graphicsmagick
 
 before_install:
-  - git clone --depth 1 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b task/update-node ${HOME}/build/BurdaMagazinOrg/theme-thunder-admin
+  - git clone --depth 1 https://github.com/BurdaMagazinOrg/theme-thunder-admin.git -b 8.x-3.x ${HOME}/build/BurdaMagazinOrg/theme-thunder-admin
   - source determine-drupal-versions.sh
   - before-install.sh
 
