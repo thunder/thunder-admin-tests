@@ -20,7 +20,7 @@ COMPOSER_MEMORY_LIMIT=-1 composer require drush/drush:~8.1 burdamagazinorg/image
 
 # Move theme to destination
 rm -rf ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
-mv ${HOME}/build/BurdaMagazinOrg/theme-thunder-admin ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
+mv ${HOME}/work/theme-thunder-admin/theme-thunder-admin ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
