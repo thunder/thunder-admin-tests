@@ -10,6 +10,7 @@ if [ -n "${THUNDER}" ]; then
     else
         composer require thunder/thunder-distribution:${THUNDER}-dev --no-update
     fi
+fi
 
 cd ${HOME}/build/test-dir
 
@@ -26,4 +27,3 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 # Pull images (and add gitattributes otherwise images show up as modified)
 echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
 git-lfs pull
-
