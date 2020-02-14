@@ -5,16 +5,16 @@
 cd ${HOME}/build/test-dir/docroot
 
 # Install styleguide
-drush -y en thunder_styleguide
+${HOME}/build/test-dir/bin/drush -y en thunder_styleguide
 
 # Final cache rebuild, to make sure every code change is respected
-drush cr
+${HOME}/build/test-dir/bin/drush cr
 
 # Pre-create all image styles for entity browser.´
-drush image-derive-all
+${HOME}/build/test-dir/bin/drush image-derive-all
 
 # Run the webserver
-drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
+${HOME}/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 
 # Run Selenium2 server with Browser relevant for running environment
 if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
