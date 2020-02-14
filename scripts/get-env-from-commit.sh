@@ -6,7 +6,7 @@
 #
 # To override multiple variables us something like this:
 # git commit -m="Your other commit message [TEST_UPDATE=true|INSTALL_METHOD=composer]"
-if [[ ${TRAVIS_EVENT_TYPE} == "pull_request" ]]; then
+if [[ ${GITHUB_EVENT_NAME} == "pull_request" ]]; then
     # These are the variables, that are allowed to be overridden
     ALLOWED_VARIABLES=("UPDATE_SCREENSHOTS")
     COMMIT_MESSAGE=$(git log --no-merges -1 --pretty="%B")
