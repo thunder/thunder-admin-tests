@@ -14,7 +14,7 @@ elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
     # Use firefox 68 (nearest to Firefox Quatum 68 ESR).
     sudo add-apt-repository ppa:mozillateam/ppa
     sudo apt-get update
-    sudo apt-get install firefox-esr
+    sudo apt-get install firefox-esr xvfb
     export DISPLAY=:0.0
     npm install -D geckodriver
     ./node_modules/.bin/geckodriver --host 127.0.0.1 --port 4444 &
