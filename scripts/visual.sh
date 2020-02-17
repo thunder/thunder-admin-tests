@@ -8,13 +8,14 @@ if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
     # Pin chrome.
     sudo apt-get install google-chrome-stable
     npm install -D chromedriver
-    ./node_modules/.bin/geckodriver --host: 127.0.0.1 --port 4444 &
+    ./node_modules/.bin/chromedriver --host: 127.0.0.1 --port 4444 &
 
 elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
     # Use firefox 68 (nearest to Firefox Quatum 68 ESR).
     sudo add-apt-repository ppa:mozillateam/ppa
     sudo apt-get update
-    sudo apt-get install firefox-esr geckodriver
+    sudo apt-get install firefox-esr
+    npm install -D geckodriver
     ./node_modules/.bin/geckodriver --host 127.0.0.1 --port 4444 &
 fi
 
