@@ -15,7 +15,8 @@ elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
     sudo add-apt-repository ppa:mozillateam/ppa
     sudo apt-get update
     sudo apt-get install firefox-esr xvfb
-    export DISPLAY=:0.0
+    Xvfb :99 &
+    export DISPLAY=:99
     npm install -D geckodriver
     ./node_modules/.bin/geckodriver --host 127.0.0.1 --port 4444 &
 fi
