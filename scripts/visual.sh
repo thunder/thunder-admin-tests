@@ -12,9 +12,10 @@ export DISPLAY=:99
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
-    chromedriver --host: 127.0.0.1 --port 4444 &
+    chromedriver --port=4444 &
+
 elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
-    geckodriver --host 127.0.0.1 --port 4444 &
+    geckodriver --binary /usr/bin/firefox-esr --host 127.0.0.1 --port 4444 &
 fi
 # Run visual regression tests
 ./node_modules/.bin/sharpeye --single-browser ${SHARPEYE_BROWSER}
