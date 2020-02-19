@@ -23,7 +23,3 @@ rm -rf ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 ln -s ${HOME}/work/theme-thunder-admin/theme-thunder-admin ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
-
-# Pull images (and add gitattributes otherwise images show up as modified)
-echo "screenshots/reference/** filter=lfs diff=lfs merge=lfs -text" > .gitattributes
-git-lfs pull
