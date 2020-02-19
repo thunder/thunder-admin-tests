@@ -1,6 +1,7 @@
 #!/bin/bash -ex
 
 if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
+    sudo apt-get update
     sudo apt-get install google-chrome-stable chromium-chromedriver
 
 elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
