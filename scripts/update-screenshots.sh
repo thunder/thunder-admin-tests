@@ -5,29 +5,29 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 # Update reference images for visual regression tests.
 #
 # Copy images and push to branch
-if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${GITHUB_REPOSITORY}" = "BurdaMagazinOrg/theme-thunder-admin" ]; then
+if [ -n "${UPDATE_SCREENSHOTS}" ] && [ "${REPOSITORY}" = "BurdaMagazinOrg/theme-thunder-admin" ]; then
 
-    if [ ! -d /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ]; then
+    if [ ! -d /tmp/sharpeye/${RUN_ID}/diff ]; then
       exit 0;
     fi
 
-    CHANGES=( $(ls /tmp/sharpeye/${TRAVIS_JOB_ID}/diff ) )
+    CHANGES=( $(ls /tmp/sharpeye/${RUN_ID}/diff ) )
 
     git config --global user.email "technology@thunder.org"
 
     # Reanimate Detached HEAD repo.
-    git remote set-branches origin ${TRAVIS_PULL_REQUEST_BRANCH}
-    git fetch --depth 1 origin ${TRAVIS_PULL_REQUEST_BRANCH}
-    git checkout ${TRAVIS_PULL_REQUEST_BRANCH}
-    git remote set-url origin https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+    git remote set-branches origin ${BRANCH}
+    git fetch --depth 1 origin ${BRANCH}
+    git checkout ${BRANCH}
+    git remote set-url origin https://${GITHUB_TOKEN}@github.com/${REPOSITORY}.git
 
     # Setup lfs for oath token
-    git config lfs.https://github.com/${TRAVIS_PULL_REQUEST_SLUG}.locksverify false
-    git config lfs.pushurl https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${GITHUB_REPOSITORY}.git/info/lfs
+    git config lfs.https://github.com/${REPOSITORY}.locksverify false
+    git config lfs.pushurl https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${REPOSITORY}.git/info/lfs
 
     for SCREENSHOT in "${CHANGES[@]}"
     do
-        cp /tmp/sharpeye/${TRAVIS_JOB_ID}/actual/${SCREENSHOT} ./screenshots/reference/
+        cp /tmp/sharpeye/${RUN_ID}/actual/${SCREENSHOT} ./screenshots/reference/
         git add ./screenshots/reference/${SCREENSHOT}
     done
 
