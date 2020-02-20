@@ -11,7 +11,8 @@ fi
 
 CHANGES=( $(ls /tmp/sharpeye/${JOB_ID}/diff ) )
 
-git config --global user.email "technology@thunder.org"
+git config user.email "technology@thunder.org"
+git config user.name "ThunderTechAccount"
 
 # Reanimate Detached HEAD repo.
 git remote set-branches origin ${BRANCH}
