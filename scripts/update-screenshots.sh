@@ -5,11 +5,11 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 # Update reference images for visual regression tests.
 #
 # Copy images and push to branch
-if [ ! -d /tmp/sharpeye/${RUN_ID}/diff ]; then
+if [ ! -d /tmp/sharpeye/${JOB_ID}/diff ]; then
   exit 0;
 fi
 
-CHANGES=( $(ls /tmp/sharpeye/${RUN_ID}/diff ) )
+CHANGES=( $(ls /tmp/sharpeye/${JOB_ID}/diff ) )
 
 git config --global user.email "technology@thunder.org"
 
@@ -25,7 +25,7 @@ git config lfs.pushurl https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${REPOSI
 
 for SCREENSHOT in "${CHANGES[@]}"
 do
-    cp /tmp/sharpeye/${RUN_ID}/actual/${SCREENSHOT} ./screenshots/reference/
+    cp /tmp/sharpeye/${JOB_ID}/actual/${SCREENSHOT} ./screenshots/reference/
     git add ./screenshots/reference/${SCREENSHOT}
 done
 
