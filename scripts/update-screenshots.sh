@@ -6,10 +6,10 @@ cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
 #
 # Copy images and push to branch
 if [ ! -d /tmp/sharpeye/${JOB_ID}/diff ]; then
-  exit 0;
+    exit 0
 fi
 
-CHANGES=( $(ls /tmp/sharpeye/${JOB_ID}/diff ) )
+CHANGES=($(ls /tmp/sharpeye/${JOB_ID}/diff))
 
 git config user.email "technology@thunder.org"
 git config user.name "ThunderTechAccount"
@@ -24,8 +24,7 @@ git remote set-url origin https://${GITHUB_TOKEN}@github.com/${REPOSITORY}.git
 git config lfs.https://github.com/${REPOSITORY}.locksverify false
 git config lfs.pushurl https://${GITHUB_TOKEN}:x-oauth-basic@github.com/${REPOSITORY}.git/info/lfs
 
-for SCREENSHOT in "${CHANGES[@]}"
-do
+for SCREENSHOT in "${CHANGES[@]}"; do
     cp /tmp/sharpeye/${JOB_ID}/actual/${SCREENSHOT} ./screenshots/reference/
     git add ./screenshots/reference/${SCREENSHOT}
 done

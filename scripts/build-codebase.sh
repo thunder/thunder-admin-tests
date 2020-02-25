@@ -5,7 +5,7 @@ composer create-project thunder/thunder-project:3.x ${HOME}/build/test-dir --sta
 
 if [ -n "${THUNDER}" ]; then
     cd ${HOME}/build/test-dir
-    if  [ -n "${DRUPAL_CORE}" ];then
+    if [ -n "${DRUPAL_CORE}" ]; then
         composer require thunder/thunder-distribution:${THUNDER}-dev drupal/core:${DRUPAL_CORE} --no-update
     else
         composer require thunder/thunder-distribution:${THUNDER}-dev --no-update

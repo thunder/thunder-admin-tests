@@ -32,7 +32,6 @@ ${HOME}/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080
 
 # Fail on newly created reference images
 if [ -n "$(git status --porcelain)" ]; then
-  echo "Failing due to uncommited changes in repo, check your reference images."
-  exit 1
+    echo "Failing due to uncommited changes in repo, check your reference images."
+    exit 1
 fi
-
