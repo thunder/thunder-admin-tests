@@ -1,9 +1,6 @@
 #!/bin/bash -ex
 
 ####
-# Run the webserver
-${HOME}/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
-
 if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
     # Pin chrome.
     docker run -d --shm-size 2g --net=host selenium/standalone-chrome:3.141.59-zinc
@@ -16,7 +13,19 @@ fi
 docker ps -a
 ####
 
+until nc -z 127.0.0.1 4444; do
+    sleep 1
+    if [[ ${count} -gt 10 ]]; then
+        printf "Selenium docker timed out." 1>&2
+        exit 1
+    fi
+    count=$((count + 1))
+done
+
 cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
+
+# Run the webserver
+${HOME}/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 
 # Run visual regression tests
 ./node_modules/.bin/sharpeye --single-browser ${SHARPEYE_BROWSER}
