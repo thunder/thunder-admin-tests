@@ -22,13 +22,13 @@ until nc -z 127.0.0.1 4444; do
     count=$((count + 1))
 done
 
-cd ${HOME}/build/test-dir/docroot/themes/contrib/thunder_admin
+cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Run the webserver
-${HOME}/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
+"${HOME}"/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 
 # Run visual regression tests
-./node_modules/.bin/sharpeye --single-browser ${SHARPEYE_BROWSER}
+./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}"
 
 # Fail on newly created reference images
 if [ -n "$(git status --porcelain)" ]; then
