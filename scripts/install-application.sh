@@ -4,8 +4,8 @@ cd "${HOME}"/build/test-dir/docroot
 
 # Install thunder
 "${HOME}"/build/test-dir/bin/drush site-install thunder \
-  --account-pass=admin--db-url="sqlite://sites/default/files/.testbasesqlite" \
-  install_configure_form.enable_update_status_module=NULL thunder_module_configure_form.install_modules_thunder_demo -y
+    --account-pass=admin--db-url="sqlite://sites/default/files/.testbasesqlite" \
+    install_configure_form.enable_update_status_module=NULL thunder_module_configure_form.install_modules_thunder_demo -y
 
 # Install styleguide
 "${HOME}"/build/test-dir/bin/drush -y en thunder_styleguide
