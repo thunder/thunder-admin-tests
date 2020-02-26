@@ -1,7 +1,5 @@
 #!/bin/bash -ex
 
-cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
-
 # Update reference images for visual regression tests.
 #
 # Copy images and push to branch
@@ -9,7 +7,10 @@ if [[ ! -d /tmp/sharpeye/"${JOB_ID}"/diff ]]; then
     exit 0
 fi
 
-CHANGES=("$(ls /tmp/sharpeye/"${JOB_ID}"/diff)")
+cd /tmp/sharpeye/"${JOB_ID}"/diff
+CHANGES=(*)
+
+cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 git config user.email "technology@thunder.org"
 git config user.name "ThunderTechAccount"
