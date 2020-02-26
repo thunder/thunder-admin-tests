@@ -32,6 +32,6 @@ done
 
 # Commit and push.
 git status
-git commit screenshots/reference/ -m "TRAVIS: Updated visual reference images for ${SHARPEYE_BROWSER}"
+git commit screenshots/reference/ -m "CI: Updated visual reference images for ${SHARPEYE_BROWSER}"
 git pull
 git push
