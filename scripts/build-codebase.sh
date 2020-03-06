@@ -1,7 +1,7 @@
 #!/bin/bash -ex
 
 # Create thunder project
-composer create-project thunder/thunder-project:3.x "${HOME}"/build/test-dir --stability dev --no-interaction --no-install
+composer create-project thunder/thunder-project:"${THUNDER_PROJECT}" "${HOME}"/build/test-dir --stability dev --no-interaction --no-install
 
 if [ -n "${THUNDER}" ]; then
     cd "${HOME}"/build/test-dir
