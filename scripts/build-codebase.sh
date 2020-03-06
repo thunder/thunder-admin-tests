@@ -1,14 +1,14 @@
 #!/bin/bash -ex
 
 # Create thunder project
-composer create-project thunder/thunder-project:"${THUNDER_PROJECT}" "${HOME}"/build/test-dir --stability dev --no-interaction --no-install
+composer create-project "${PROJECT}":"${PROJECT_BRANCH}" "${HOME}"/build/test-dir --stability dev --no-interaction --no-install
 
-if [ -n "${THUNDER}" ]; then
+if [ -n "${PROFILE_BRANCH}" ]; then
     cd "${HOME}"/build/test-dir
     if [ -n "${DRUPAL_CORE}" ]; then
-        composer require thunder/thunder-distribution:"${THUNDER}"-dev drupal/core:"${DRUPAL_CORE}" --no-update
+        composer require "${PROFILE}":"${PROFILE_BRANCH}"-dev drupal/core:"${DRUPAL_CORE}" --no-update
     else
-        composer require thunder/thunder-distribution:"${THUNDER}"-dev --no-update
+        composer require "${PROFILE}":"${PROFILE_BRANCH}"-dev --no-update
     fi
 fi
 
