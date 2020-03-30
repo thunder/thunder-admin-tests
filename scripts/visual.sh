@@ -28,8 +28,8 @@ cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 "${HOME}"/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 
 # Run visual regression tests
-if [[ ${UPDATE_SCREENSHOTS} ]]; then
-  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}" --numRetries 0
+if [[ ${UPDATE_SCREENSHOTS} == true ]]; then
+  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}" --num-retries 0
 else
   ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}"
 fi
