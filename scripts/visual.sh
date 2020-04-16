@@ -25,7 +25,7 @@ done
 cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Run the webserver
-"${HOME}"/build/test-dir/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
+"${HOME}"/build/test-dir/vendor/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 
 # Run visual regression tests
 if [[ ${UPDATE_SCREENSHOTS} == true ]]; then
