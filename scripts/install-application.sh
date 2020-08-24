@@ -11,7 +11,7 @@ cd "${HOME}"/build/test-dir/docroot
 chmod u+w sites/default/settings.php
 echo "\$settings['extension_discovery_scan_tests'] = TRUE;" >> sites/default/settings.php
 "${HOME}"/build/test-dir/vendor/bin/drush -y en thunder_styleguide css_disable_transitions_test
-sed -i "$ d" sites/default/settings.php
+head -N -1 sites/default/settings.php > sites/default/settings.php
 
 # Final cache rebuild, to make sure every code change is respected
 "${HOME}"/build/test-dir/vendor/bin/drush cr
