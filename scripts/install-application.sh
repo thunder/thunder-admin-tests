@@ -9,9 +9,10 @@ cd "${HOME}"/build/test-dir/docroot
 
 # Install styleguide and disable transitions
 chmod u+w sites/default/settings.php
+cp sites/default/settings.php /tmp/settings.php
 echo "\$settings['extension_discovery_scan_tests'] = TRUE;" >> sites/default/settings.php
 "${HOME}"/build/test-dir/vendor/bin/drush -y en thunder_styleguide css_disable_transitions_test
-head --lines=-1 sites/default/settings.php > sites/default/settings.php
+mv /tmp/settings.php sites/default/settings.php
 
 # Final cache rebuild, to make sure every code change is respected
 "${HOME}"/build/test-dir/vendor/bin/drush cr
