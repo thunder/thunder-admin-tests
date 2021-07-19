@@ -3,10 +3,10 @@
 ####
 if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
     # Pin chrome.
-    docker run -d --shm-size 2g --net=host selenium/standalone-chrome:3.141.59-zinc
+    docker run -d --shm-size 2g --net=host selenium/standalone-chrome:3.141.59-20210713
 elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
-    # Use firefox 68 (nearest to Firefox Quatum 68 ESR).
-    docker run -d --shm-size 2g --net=host selenium/standalone-firefox:3.141.59-titanium
+    # Use firefox 78.
+    docker run -d --shm-size 2g --net=host selenium/standalone-firefox:3.141.59-20200719
 fi
 
 # Show dockers
