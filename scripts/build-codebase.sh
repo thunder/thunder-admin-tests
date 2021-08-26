@@ -6,9 +6,9 @@ composer create-project "${PROJECT}":"${PROJECT_BRANCH}" "${HOME}"/build/test-di
 if [ -n "${PROFILE_BRANCH}" ]; then
     cd "${HOME}"/build/test-dir
     if [ -n "${DRUPAL_CORE}" ]; then
-        composer require "${PROFILE}":"${PROFILE_BRANCH}"-dev drupal/core:"${DRUPAL_CORE}" --no-update
+        composer require "${PROFILE}":"${PROFILE_BRANCH}" drupal/core:"${DRUPAL_CORE}" --no-update
     else
-        composer require "${PROFILE}":"${PROFILE_BRANCH}"-dev --no-update
+        composer require "${PROFILE}":"${PROFILE_BRANCH}" --no-update
     fi
 fi
 
