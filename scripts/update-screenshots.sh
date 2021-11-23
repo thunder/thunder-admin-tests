@@ -14,6 +14,7 @@ cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 git config user.email "technology@thunder.org"
 git config user.name "ThunderTechAccount"
+git config pull.rebase false
 
 # Reanimate Detached HEAD repo.
 git remote set-branches origin "${BRANCH}"
