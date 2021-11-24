@@ -14,6 +14,7 @@ cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 git config user.email "technology@thunder.org"
 git config user.name "ThunderTechAccount"
+git config pull.rebase false
 
 # Reanimate Detached HEAD repo.
 git remote set-branches origin "${BRANCH}"
@@ -24,9 +25,6 @@ git remote set-url origin https://"${GITHUB_TOKEN}"@github.com/"${REPOSITORY}".g
 # Setup lfs for oath token
 git config lfs.https://github.com/"${REPOSITORY}".locksverify false
 git config lfs.pushurl https://"${GITHUB_TOKEN}":x-oauth-basic@github.com/"${REPOSITORY}".git/info/lfs
-
-# Setup handling of diverging branches
-git config pull.rebase false
 
 for SCREENSHOT in "${CHANGES[@]}"; do
     cp /tmp/sharpeye/"${JOB_ID}"/actual/"${SCREENSHOT}" ./screenshots/reference/
