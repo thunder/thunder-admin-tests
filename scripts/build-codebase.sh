@@ -14,8 +14,8 @@ fi
 
 cd "${HOME}"/build/test-dir
 
-# Allow plugins.
-composer config --no-plugins allow-plugins.drupal/core-composer-scaffold true
+# Allow all plugins.
+composer config --no-plugins allow-plugins true
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
 # this actually does the 'composer install'
