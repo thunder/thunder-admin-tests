@@ -19,7 +19,7 @@ composer config --no-plugins allow-plugins true
 
 # Drush 8 is needed as long as there is no drush 9 command version for image-derive-all
 # this actually does the 'composer install'
-COMPOSER_MEMORY_LIMIT=-1 composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev thunder/thunder_styleguide:dev-fix/default-content thunder/thunder_testing_demo:"${THUNDER_TESTING_DEMO_BRANCH}"-dev
+COMPOSER_MEMORY_LIMIT=-1 composer require drush/drush:~8.1 burdamagazinorg/image-derive-all:master@dev thunder/thunder_styleguide thunder/thunder_testing_demo:"${THUNDER_TESTING_DEMO_BRANCH}"-dev
 
 # Move theme to destination
 rm -rf "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
