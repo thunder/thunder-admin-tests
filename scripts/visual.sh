@@ -25,8 +25,7 @@ done
 cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Run the webserver
-php -S 0.0.0.0:8080 -t "${HOME}"/build/test-dir/docroot >/dev/null 2>&1 &
-#"${HOME}"/build/test-dir/vendor/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
+PHP_CLI_SERVER_WORKERS=10 php -S 0.0.0.0:8080 -t "${HOME}"/build/test-dir/docroot >/dev/null 2>&1 &
 
 # Run visual regression tests
 if [[ ${UPDATE_SCREENSHOTS} == true ]]; then
