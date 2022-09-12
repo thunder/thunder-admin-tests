@@ -5,7 +5,7 @@ if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
     # Pin chrome.
     docker run -d --shm-size 2g --net=host selenium/standalone-chrome:4.4.0-20220831
 elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
-    # Use firefox 78 (nearest to Firefox ESR).
+    # Use firefox 90 (nearest to Firefox ESR).
     docker run -d --shm-size 2g --net=host selenium/standalone-firefox:3.141.59-20200719
 fi
 
@@ -25,7 +25,8 @@ done
 cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
 # Run the webserver
-"${HOME}"/build/test-dir/vendor/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
+php -S 0.0.0.0:8080 -t "${HOME}"/build/test-dir/docroot >/dev/null 2>&1 &
+#"${HOME}"/build/test-dir/vendor/bin/drush runserver --default-server=builtin 0.0.0.0:8080 &>/dev/null &
 
 # Run visual regression tests
 if [[ ${UPDATE_SCREENSHOTS} == true ]]; then
