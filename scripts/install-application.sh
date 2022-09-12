@@ -5,7 +5,7 @@ cd "${HOME}"/build/test-dir/docroot
 # Install thunder
 "${HOME}"/build/test-dir/vendor/bin/drush site-install thunder \
     --account-pass=admin --db-url="sqlite://sites/default/files/.testbasesqlite" \
-    install_configure_form.enable_update_status_module=NULL thunder_module_configure_form.install_modules_thunder_demo -y
+    install_configure_form.enable_update_status_module=NULL thunder_module_configure_form.install_modules_thunder_demo=FALSE -y
 
 # Install styleguide and disable transitions
 chmod u+w sites/default/settings.php
