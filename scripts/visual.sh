@@ -29,9 +29,10 @@ PHP_CLI_SERVER_WORKERS=10 php -S 0.0.0.0:8080 -t "${HOME}"/build/test-dir/docroo
 
 # Run visual regression tests
 if [[ ${UPDATE_SCREENSHOTS} == true ]]; then
-  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}" --num-retries 0
+  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}" --base-url "${BASE_URL}" --num-retries 0
+
 else
-  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}"
+  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}" --base-url "${BASE_URL}"
 fi
 
 # Fail on newly created reference images
