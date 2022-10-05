@@ -1,22 +1,10 @@
 #!/bin/bash -ex
 
-####
-if [[ ${SHARPEYE_BROWSER} == "chrome" ]]; then
-    # Pin chrome.
-    docker run -d --shm-size 2g --net=host selenium/standalone-chrome:3.141.59-20210713
-elif [[ ${SHARPEYE_BROWSER} == "firefox" ]]; then
-    # Use firefox 78 (nearest to Firefox ESR).
-    docker run -d --shm-size 2g --net=host selenium/standalone-firefox:3.141.59-20200719
-fi
-
-# Show dockers
-docker ps -a
-####
 
 until nc -z 127.0.0.1 4444; do
     sleep 1
     if [[ ${count} -gt 10 ]]; then
-        printf "Selenium docker timed out." 1>&2
+        printf "Selenium timed out." 1>&2
         exit 1
     fi
     count=$((count + 1))
@@ -24,14 +12,12 @@ done
 
 cd "${HOME}"/build/test-dir/docroot/themes/contrib/thunder_admin
 
-# Run the webserver
-PHP_CLI_SERVER_WORKERS=10 php -S 0.0.0.0:8080 -t "${HOME}"/build/test-dir/docroot >/dev/null 2>&1 &
-
 # Run visual regression tests
 if [[ ${UPDATE_SCREENSHOTS} == true ]]; then
-  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}" --num-retries 0
+  npx sharpeye --single-browser "${SHARPEYE_BROWSER}" --base-url "${BASE_URL}" --num-retries 0
+
 else
-  ./node_modules/.bin/sharpeye --single-browser "${SHARPEYE_BROWSER}"
+  npx sharpeye --single-browser "${SHARPEYE_BROWSER}" --base-url "${BASE_URL}"
 fi
 
 # Fail on newly created reference images
